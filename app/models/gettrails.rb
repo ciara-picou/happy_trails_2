@@ -14,9 +14,10 @@ class GetTrails
     #     sort_by: "rating",
     #     radius: 16_000,#
     #   }
-      response = HTTP.get(https://www.hikingproject.com/data/).to_s
+      response_1 = HTTP.get("https://www.hikingproject.com/data/get-trails?lat=30.266666&lon=-97.733330&maxDistance=50&key=200929323-04a970a3635a0936abc6731a619869c2").to_s
+      response_2 = HTTP.get("https://www.hikingproject.com/data/get-trails?lat=29.749907&lon=-95.358421&maxDistance=50&key=200929323-04a970a3635a0936abc6731a619869c2").to_s
    
-     puts response
+     
     end
   end
   
