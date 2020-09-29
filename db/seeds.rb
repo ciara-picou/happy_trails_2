@@ -24,5 +24,9 @@ API_KEY = ENV["API_KEY"]
    
    
       puts "Hello"
-   byebug 
+   #byebug 
    puts "Goodbye"
+
+u1 = User.create(name: "bob")
+t1 = Trail.create(name: "short trail",summary: "its  a short trail", stars: 3.5,location:"short trail valley" ,length: 4.6)
+l1 = Like.create(user_id: u1, trail_id: t1)
