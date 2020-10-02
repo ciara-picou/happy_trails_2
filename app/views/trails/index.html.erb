@@ -4,4 +4,4 @@
     
     <% end %>
 
-    <%= button_to "Return to Homepage", users_path %>
+    <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>

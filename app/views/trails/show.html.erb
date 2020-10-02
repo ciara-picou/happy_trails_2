@@ -35,9 +35,10 @@
 
 <%= f.label :hike_date %>
 <%= f.date_field :hike_date %>
+<%= f.number_field :trail_id, value: @trail.id%>
 <br/>
 <%= f.submit "set up" %>
 
 <% end %>
 
-<%= button_to "Return to Homepage", users_path %>
+  <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>

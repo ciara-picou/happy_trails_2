@@ -49,12 +49,6 @@ create_trails(houston_trails)
   #byebug
    puts "Goodbye"
 u1 = User.create(name: "bob", username:"billybob", email:"billybob@email.com", password:"bigbilly")
-u2 = User.create(name: "mob", username:"millybob", email:"millybob@email.com", password:"migbilly")
-u3 = User.create(name: "nob", username:"nillybob", email:"nillybob@email.com", password:"nigbilly")
-u4 = User.create(name: "cob", username:"cillybob", email:"cillybob@email.com", password:"cigbilly")
-u5 = User.create(name: "tob", username:"tillybob", email:"tillybob@email.com", password:"tigbilly")
-u6 = User.create(name: "blob", username:"blillybob", email:"blillybob@email.com", password:"bligbilly")
-u7 = User.create(name: "sob", username:"sillybob", email:"sillybob@email.com", password:"sigbilly")
 t1 = Trail.create(name: "short trail",summary: "its  a short trail", stars: 3.5,location:"short trail valley" ,length: 3.5)
 l1 = Like.create(user_id: u1, trail_id: t1)
 tl1 = TrailList.create(user_id: u1.id, trail_id: t1.id)
