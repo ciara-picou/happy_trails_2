@@ -15,7 +15,11 @@
  */
 body{
     background-color: rgb(182, 207, 216);
-    
+    font-family: 'David Libre', serif;
+}
+
+::-webkit-scrollbar{
+    display: none
 }
  .header{
      display: flex;
@@ -26,3 +30,41 @@ body{
      background-color: rgb(150, 189, 223);
      color:rgb(220, 231, 235)
  }
+
+
+ .user_show_div{
+    display: flex;
+    float: left;
+    flex-flow: column wrap;
+    max-height: 600px;
+    padding: 10%;
+ }
+
+ .inner_user_div {
+    display: flex;
+    float: left;
+    font-size: 20px;
+    
+    flex-flow: column wrap;
+    align-items: center;
+ }
+
+ .inner_user_div h2 {
+     font-size: 30px;
+ }
+ .inner_user_div ul {
+     max-width: 80%;
+ }
+
+ .trail_img {
+     float: right;
+     max-width: 60%;
+ }
+.trails_index_div{
+    padding: 10%;
+    font-size: 25px
+}
+.sign_in_div{
+    
+}
+ 

@@ -1,6 +1,6 @@
-<h1> Check out our trails: </h1>
-<% @trails.each do |trail| %>
-    <li><%= link_to trail.name, trail_path(trail) %></li>
+<h1 class="header">Check out our trails: </h1>
+    <% @trails.each do |trail| %>
+        <li><%= link_to trail.name, trail_path(trail) %></li>
     
     <% end %>
 
