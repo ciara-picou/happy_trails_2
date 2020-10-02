@@ -1,1 +1,7 @@
-<%= "this is trails index page" %>
+<h1> Check out our trails: </h1>
+<% @trails.each do |trail| %>
+    <li><%= link_to trail.name, trail_path(trail) %></li>
+    
+    <% end %>
+
+    <%= button_to "Return to Homepage", users_path %>

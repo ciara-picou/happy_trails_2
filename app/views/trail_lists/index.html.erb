@@ -1,0 +1,9 @@
+<h1>Trails to Check Out </h1>
+<% @trail_lists.each do |trail_list| %>
+    <img src=<%= "#{trail_list.trail.imgMedium} "%>>
+    <br><%= link_to trail_list.trail.name, trail_path(trail_list.trail) %><br>
+    <br>
+    <br>
+<% end %>
+
+<%= button_to "Return to Homepage", users_path %>

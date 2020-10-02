@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag 'application.css' %>
+<h1 class="header"> Welcome <%= @user.name %> </h1>
+<h2> Plan your next adventure </h2>
+<ul>
+  <li>Check out our amazing <a href="/trails">Trails</a></li>
+  <li>View your <a href="/trail_lists">Trail List</a></li>
+  <li>Join other hikers on a group <a href="./hikes"> Hike</a></li>
+</ul>
+
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<img src="<%= Trail.first.imgMedium %>"> 
+

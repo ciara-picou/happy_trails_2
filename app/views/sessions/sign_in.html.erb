@@ -1,0 +1,20 @@
+<h1>Please sign in to your account</h1>
+
+<%= form_with model: @user, :url => url_for(:controller => 'sessions', :action => 'create')do | f |%>
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+<br/>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<br/>
+<%= f.submit "log in" %>
+
+<% end %>
+<br/>
+
+<%=link_to "Don't have an account? Create one!", '/users/new'  %>
+
+<% flash.each do | key, v | %>
+<li style='color: red '> <%= v %> </li>
+<%end %>

@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_001900) do
+ActiveRecord::Schema.define(version: 2020_10_01_164145) do
 
-  create_table "likes", force: :cascade do |t|
+  create_table "hikes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "trail_id"
+    t.date "hike_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "trail_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trail_lists", force: :cascade do |t|
+    t.integer "trail_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trails", force: :cascade do |t|
@@ -24,10 +41,14 @@ ActiveRecord::Schema.define(version: 2020_09_29_001900) do
     t.float "stars"
     t.string "location"
     t.float "length"
+    t.string "imgMedium"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

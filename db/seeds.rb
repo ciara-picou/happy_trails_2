@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require "rest-client"
-require "json"
+require 'rest-client'
+require 'json'
 
 User.destroy_all
 Trail.destroy_all
@@ -22,12 +22,22 @@ Like.destroy_all
   trails_hash_2 = JSON.parse(response_2)
   houston_trails = trails_hash_2["trails"]
 
-
+  def parse_url(url)
+   url.gsub('\\', '')
+   #we have to include a backslash to escape our first backslash because ruby is asssuming we are using the first backaslash to escape out quote
+  end
 
   def create_trails(trail)
   i = 0
   while i < trail.length
-    Trail.create(name: trail[i]["name"],summary: trail[i]["summary"] , stars: trail[i]["stars"],location: trail[i]["location"] ,length: trail[i]["length"])
+    Trail.create(
+       name: trail[i]["name"],
+       summary: trail[i]["summary"] , 
+       stars: trail[i]["stars"],
+       location: trail[i]["location"] ,
+       length: trail[i]["length"], 
+       imgMedium: parse_url(trail[i]["imgMedium"])
+       )
     i += 1
   end
 end
@@ -36,14 +46,19 @@ end
 create_trails(austin_trails)
 create_trails(houston_trails)
       puts "Hello"
-  byebug
+  #byebug
    puts "Goodbye"
-
-u1 = User.create(name: "bob")
-t1 = Trail.create(name: "short trail",summary: "its  a short trail", stars: 3.5,location:"short trail valley" ,length: trail[i]["length"])
+u1 = User.create(name: "bob", username:"billybob", email:"billybob@email.com", password:"bigbilly")
+t1 = Trail.create(name: "short trail",summary: "its  a short trail", stars: 3.5,location:"short trail valley" ,length: 3.5)
 l1 = Like.create(user_id: u1, trail_id: t1)
-
-   #Like.create(user_id: User.all.sample.id, trail_id: Trail.all.sample.id)
+tl1 = TrailList.create(user_id: u1.id, trail_id: t1.id)
+tl2 = TrailList.create(user_id: u1.id, trail_id: 110)
+#Like.create(user_id: User.all.sample.id, trail_id: Trail.all.sample.id)
    
    #byebug 
    puts "our project is awesome!"
+
+#    t.string :name
+#    t.string :username
+#    t.string :email
+#    t.string :password_digest
