@@ -1,4 +1,7 @@
 <h1 class="header">Trails to Check Out </h1>
+<% flash.each do | key, v | %>
+<li style='color: red '> <%= v %> </li><br>
+<%end %>
 <% @trail_lists.each do |trail_list| %>
     <img src=<%= "#{trail_list.trail.imgMedium} "%>>
     <br><%= link_to trail_list.trail.name, trail_path(trail_list.trail) %><br>

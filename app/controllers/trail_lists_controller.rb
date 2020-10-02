@@ -14,9 +14,8 @@ class TrailListsController < ApplicationController
    end
 
   def create
-   
     if already_liked?
-        redirect_to trail_lists_path  
+      flash[:notice] = "you cant add that to your list more than once you DINGUS"
     else
         @list = TrailList.create(trail_id: list_params[:trail_id],user_id: session[:id])
     end

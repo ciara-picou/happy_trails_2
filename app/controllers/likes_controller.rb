@@ -26,7 +26,7 @@ class LikesController < ApplicationController
     end
 
     def find_like
-        @like = @trail.likes.find(params[:id])
+        @like = Like.find(params[:id])
     end
 
     def like_params

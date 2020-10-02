@@ -9,7 +9,12 @@
       <li>Join other hikers on a group <a href="./hikes"> Hike</a></li>
     </ul>
 
-    <%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+    <%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%><br><br>
+    <h3>Your Scheduled Hikes:</h3>
+    <% @user.hikes.each do |a| %>
+    <%=link_to"#{a.trail.name} :","/hikes/#{a.id}" %> <%= a.hike_date%><br>
+<% end %>
+
   </div>
 </div>
 

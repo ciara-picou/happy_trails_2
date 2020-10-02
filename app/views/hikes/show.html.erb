@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag 'application.css' %>
+<h1 class="header"><%= @hike.user.name %>, your hike is all set up for <%= @hike.hike_date %> </h1>
+<h1><%= %></h1>
+<h1><%= @hike.trail.name %></h1>
+<p> <%= @hike.trail.summary %> </p>
+<li> <strong>Rating:</strong> <%= @hike.trail.stars %></li>
+<li> <strong>Location:</strong> <%= @hike.trail.location %></li>
+<li> <strong>Length:</strong> <%= @hike.trail.length %></li>
+<img src="<%= @hike.trail.imgMedium %>">
+
+<%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>

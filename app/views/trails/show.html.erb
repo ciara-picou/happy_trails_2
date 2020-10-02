@@ -1,8 +1,8 @@
 <h1><%= @trail.name %></h1>
 <p> <%= @trail.summary %> </p>
-<li> <strong>Rating:</strong> <%= @trail.stars %></li>
+<li> <strong>Rating:</strong> <%= @trail.stars %>/5.0</li>
 <li> <strong>Location:</strong> <%= @trail.location %></li>
-<li> <strong>Length:</strong> <%= @trail.length %></li>
+<li> <strong>Length:</strong> <%= @trail.length %> miles</li>
 <img src="<%= @trail.imgMedium %>">
 
 
@@ -13,22 +13,16 @@
 
 
 <p><%= @trail.likes.count %> <%= (@trail.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
+<% flash.each do | key, v | %>
+<li style='color: red '> <%= v %> </li>
+<%end %>
 <%= button_to 'like',{:controller => 'likes', :action => 'create'}, method: "post", params: {like:{trail_id: @trail.id}}%><br>
-<% flash.each do | key, v | %>
-<li style='color: red '> <%= v %> </li>
-<%end %>
-<%= button_to 'unlike',{:controller => 'likes', :action => 'destroy'}, method: "delete", params: {like:{trail_id: @trail.id}}%><br>
-<% flash.each do | key, v | %>
-<li style='color: red '> <%= v %> </li>
-<%end %>
+<% button_to 'unlike',{:controller => 'likes', :action => 'destroy'}, method: "delete", params: {like:{trail_id: @trail.id}}%><br>
+
 
 <h1>Would you like to add this trail to your Trails List?</h1>
 
 <%= button_to 'yes',{:controller => 'trail_lists', :action => 'create'}, method: "post", params: {trail_lists:{trail_id: @trail.id}}%><br>
-<% flash.each do | key, v | %>
-<li style='color: red '> <%= v %> </li>
-<%end %>
 
 <h1>setup a hike</h1>
 <%= form_with model: @hike, :url => url_for(:controller => 'hikes', :action => 'create') do | f |%>
