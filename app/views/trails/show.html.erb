@@ -48,12 +48,19 @@
 
 <%= f.label :hike_date %>
 <%= f.date_field :hike_date %>
+<%= f.label :trail_id %>
 <%= f.number_field :trail_id, value: @trail.id%>
-<br/>
+<br />
 <%= f.submit "set up" %>
 
 <% end %>
 
 
+<h3>Scheduled Hikes</h3>
+<ul>
+<% @hikes.each do |hike| %>
+<li><%= link_to hike.hike_date.strftime('%m/%d/%Y'), hike_path(hike) %></li>
+<% end %>
+</ul>
+<%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
 
-  <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>

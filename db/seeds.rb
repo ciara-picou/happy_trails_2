@@ -60,7 +60,6 @@ l1 = Like.create(user_id: u1, trail_id: t1)
 tl1 = TrailList.create(user_id: u1.id, trail_id: t1.id)
 tl2 = TrailList.create(user_id: u1.id, trail_id: 110)
 #Like.create(user_id: User.all.sample.id, trail_id: Trail.all.sample.id)
-h1
    #byebug 
    puts "our project is awesome!"
 

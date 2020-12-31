@@ -4,20 +4,18 @@ class HikesController < ApplicationController
   end
 
   def create
-    params[:hike][:user_id] = session[:id].to_s
-    #byebug
     @hike = Hike.create(hike_params)
-    redirect_to hike_path(@hike)
   end
+
   def show
-    #byebug
     @hike = Hike.find(params[:id])
+    @date = @hike.hike_date.strftime('%m/%d/%Y')
+    @sign_ups = @hike.hike_sign_ups
   end
 
   private
   
   def hike_params
-    #byebug
-    params.require(:hike).permit(:trail_id,:hike_date,:user_id)
+    params.require(:hike).permit(:trail_id,:hike_date)
   end
 end

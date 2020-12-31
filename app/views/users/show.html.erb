@@ -11,8 +11,8 @@
 
     <%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%><br><br>
     <h3>Your Scheduled Hikes:</h3>
-    <% @user.hikes.each do |a| %>
-    <%=link_to"#{a.trail.name} :","/hikes/#{a.id}" %> <%= a.hike_date%><br>
+    <% @user.hike_sign_ups.each do |sign_up| %>
+    <%=link_to"#{sign_up.hike.trail.name} :","/hikes/#{sign_up.hike.id}" %> <%= sign_up.hike.hike_date%><br>
 <% end %>
 
   </div>

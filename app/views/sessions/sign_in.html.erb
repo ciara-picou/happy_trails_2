@@ -19,7 +19,11 @@
     <li style='color: red '> <%= v %> </li>
     <%end %>
     </div>
-    <img src="<%= Trail.where("id=?", 133).first.imgMedium %>"> 
+    <%
+=begin%>
+ <img src="<%= Trail.where("id=?", 133).first.imgMedium %>">  
+<%
+=end%>
     
 
 
