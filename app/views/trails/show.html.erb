@@ -38,8 +38,8 @@
 
 <h3>Scheduled Hikes</h3>
 <ul>
-<% @hikes.each do |hike| %>
-<li><%= link_to hike.hike_date.strftime('%m/%d/%Y'), hike_path(hike) %></li>
-<% end %>
+    <% @hikes.each do |hike| %>
+    <li><%= link_to hike.hike_date.strftime('%m/%d/%Y'), hike_path(hike) %></li>
+    <% end %>
 </ul>
 <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
