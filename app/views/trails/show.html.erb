@@ -19,6 +19,25 @@
 <%= button_to 'like',{:controller => 'likes', :action => 'create'}, method: "post", params: {like:{trail_id: @trail.id}}%><br>
 <% button_to 'unlike',{:controller => 'likes', :action => 'destroy'}, method: "delete", params: {like:{trail_id: @trail.id}}%><br>
 
+<h1>Leave a Comment</h1>
+<%= form_with model: @comment, :url => url_for(:controller => 'comments', :action => 'create') do | f |%>
+
+<%= f.label :comment %>
+<%= f.text_field :comment %>
+<%= f.label :trail_id %>
+<%= f.number_field :trail_id, value: @trail.id%>
+<br />
+<%= f.submit "Submit" %>
+
+<% end %>
+
+<h3>Comments:</h3>
+<ul>
+<% @comments.each do |comment| %>
+<li><%= comment.content %></li>
+<% end %>
+</ul>
+
 
 <h1>Would you like to add this trail to your Trails List?</h1>
 
@@ -36,6 +55,7 @@
 
 <% end %>
 
+
 <h3>Scheduled Hikes</h3>
 <ul>
 <% @hikes.each do |hike| %>
@@ -43,3 +63,4 @@
 <% end %>
 </ul>
 <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
+
