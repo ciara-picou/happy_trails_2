@@ -5,5 +5,6 @@ class TrailsController < ApplicationController
   def show
     @trail = Trail.find(params[:id])
     @hike = Hike.new
+    @comments = @trail.comments
   end
 end

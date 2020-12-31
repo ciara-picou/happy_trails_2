@@ -10,7 +10,7 @@ class HikesController < ApplicationController
     redirect_to hike_path(@hike)
   end
   def show
-    #Sbyebug
+    #byebug
     @hike = Hike.find(params[:id])
   end
 

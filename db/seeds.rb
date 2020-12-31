@@ -24,7 +24,7 @@ Like.destroy_all
 
   def parse_url(url)
    url.gsub('\\', '')
-   #we have to include a backslash to escape our first backslash because ruby is asssuming we are using the first backaslash to escape out quote
+   #we have to include a backslash to escape our first backslash because ruby is asssuming we are using the first backslash to escape a quote
   end
 
   def create_trails(trail)

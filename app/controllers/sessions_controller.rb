@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         #byebug
         # check User password input vs User password in db 
         # .authenticate
-        # find userr
+        # find user
         # check if there is a user&& if their password matches
         # THEN store id in session
         @user = User.find_by(email: user_params[:email])

@@ -4,9 +4,9 @@ class LikesController < ApplicationController
 
     def create
         if already_liked?
-            flash[:notice] = "are You serious you can't like more than once"
+            flash[:notice] = "Are you serious? You can't like more than once"
         else
-        @like = Like.create(trail_id: like_params[:trail_id],user_id: session[:id])
+        @like = Like.create(trail_id: like_params[:trail_id], user_id: session[:id])
         end
         redirect_to trail_path(like_params[:trail_id])
     end
