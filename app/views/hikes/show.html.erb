@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'application.css' %>
-<h1 class="header"><%= @hike.user.name %>, your hike is all set up for <%= @hike.hike_date %> </h1>
+<h1 class="header"><%= @date %> </h1>
 <h1><%= %></h1>
 <h1><%= @hike.trail.name %></h1>
 <p> <%= @hike.trail.summary %> </p>
@@ -7,5 +7,12 @@
 <li> <strong>Location:</strong> <%= @hike.trail.location %></li>
 <li> <strong>Length:</strong> <%= @hike.trail.length %></li>
 <img src="<%= @hike.trail.imgMedium %>">
+<h2>Hikers</h2>
+<ul>
+    <% @sign_ups.each do |su| %>
+    <li><%= su.user.name %></li>
+    <% end %>
+</ul>
+
 
 <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>

@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_164145) do
+ActiveRecord::Schema.define(version: 2020_12_31_000331) do
+
+  create_table "hike_sign_ups", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "hike_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hike_id"], name: "index_hike_sign_ups_on_hike_id"
+    t.index ["user_id"], name: "index_hike_sign_ups_on_user_id"
+  end
 
   create_table "hikes", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "trail_id"
     t.date "hike_date"
     t.datetime "created_at", precision: 6, null: false
@@ -51,4 +59,6 @@ ActiveRecord::Schema.define(version: 2020_10_01_164145) do
     t.string "password_digest"
   end
 
+  add_foreign_key "hike_sign_ups", "hikes"
+  add_foreign_key "hike_sign_ups", "users"
 end
