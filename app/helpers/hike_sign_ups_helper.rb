@@ -1,0 +1,2 @@
+module HikeSignUpsHelper
+end
