@@ -2,29 +2,21 @@
 <h4 style="color:white;font-size:30px;text-align:center">Please sign in to your account</h4>
 <div class="sign_in_div">
     <%= form_with model: @user, :url => url_for(:controller => 'sessions', :action => 'create')do | f |%>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-        <br/>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        <br/>
-        <%= f.submit "log in" %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br />
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br />
+    <%= f.submit "log in" %>
 
     <% end %>
-    <br/>
 
+    <br>
     <%=link_to "Don't have an account? Create one!", '/users/new'  %>
 
     <% flash.each do | key, v | %>
     <li style='color: red '> <%= v %> </li>
     <%end %>
-    </div>
-    <%
-=begin%>
- <img src="<%= Trail.where("id=?", 133).first.imgMedium %>">  
-<%
-=end%>
-    
 
-
-
+</div>

@@ -1,5 +1,0 @@
-<%= form_with model: @trail_list do |f| %>
-    <%= f.label "Add a Trail to Your Trail List"%>
-    <%= f.collection_checkboxes: :trail_ids, @trails, :id, :name %>
-    <%= f.submit%>
-<% end %>

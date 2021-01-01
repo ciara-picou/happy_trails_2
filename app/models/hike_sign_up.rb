@@ -1,5 +1,6 @@
 class HikeSignUp < ApplicationRecord
   belongs_to :user
   belongs_to :hike
-end
 
+  validates_uniqueness_of :user_id, :scope => :hike_id
+end

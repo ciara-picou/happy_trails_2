@@ -8,7 +8,5 @@ class TrailsController < ApplicationController
     @hike = Hike.new
     @comments = @trail.comments
     @hikes = @trail.hikes
-
   end
-
 end
