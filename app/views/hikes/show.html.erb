@@ -1,12 +1,14 @@
 <%= stylesheet_link_tag 'application.css' %>
+
+<!-- List out trail details and registered hikers, allows a user to register for Hike -->
 <h1 class="header"><%= @date %> </h1>
-<h1><%= %></h1>
 <h1><%= @hike.trail.name %></h1>
 <p> <%= @hike.trail.summary %> </p>
 <li> <strong>Rating:</strong> <%= @hike.trail.stars %></li>
 <li> <strong>Location:</strong> <%= @hike.trail.location %></li>
 <li> <strong>Length:</strong> <%= @hike.trail.length %></li>
 <img src="<%= @hike.trail.imgMedium %>">
+
 <h2>Hikers</h2>
 <ul>
     <% @sign_ups.each do |su| %>
@@ -14,5 +16,11 @@
     <% end %>
 </ul>
 
+<form action='/hike_sign_ups' method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="hike_sign_up[hike_id]" value="<%= @hike.id %>">
+    <input type="submit" value="Register">
+</form>
 
+<br>
 <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>

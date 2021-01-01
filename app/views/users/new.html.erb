@@ -3,23 +3,22 @@
 <%= form_with model: @user, :url => url_for(:controller => 'users', :action => 'create')do | f |%>
 <%= f.label :name %>
 <%= f.text_field :name %>
-<br/>
+<br />
 <%= f.label :email %>
 <%= f.text_field :email %>
-<br/>
+<br />
 <%= f.label :username %>
 <%= f.text_field :username %>
-<br/>
+<br />
 <%= f.label :password %>
 <%= f.password_field :password %>
-<br/>
+<br />
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %>
-<br/>
+<br />
 <%= f.submit "sign up" %>
-
 <% end %>
+
 <% flash.each do | key, v | %>
 <li style='color: red '> <%= v %> </li>
-<%end %>
-
+<% end %>

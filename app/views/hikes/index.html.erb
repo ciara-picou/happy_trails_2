@@ -1,0 +1,11 @@
+<h1>All Hikes</h1>
+
+<!-- Lists out all schedluled hikes with the trail and the date. Allows a user to sign up for the hike -->
+<% @hikes.each do |hike| %>
+<h4> <%=link_to hike.trail.name, trail_path(hike.trail)%> - <%=hike.hike_date%></h4>
+<form action='/hike_sign_ups' method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="hike_sign_up[hike_id]" value="<%= hike.id %>">
+    <input type="submit" value="Register">
+</form>
+<% end %>

@@ -5,62 +5,46 @@
 <li> <strong>Length:</strong> <%= @trail.length %> miles</li>
 <img src="<%= @trail.imgMedium %>">
 
-
-
-
-
-
-
-
 <p><%= @trail.likes.count %> <%= (@trail.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <% flash.each do | key, v | %>
 <li style='color: red '> <%= v %> </li>
-<%end %>
+<% end %>
 <%= button_to 'like',{:controller => 'likes', :action => 'create'}, method: "post", params: {like:{trail_id: @trail.id}}%><br>
-<% button_to 'unlike',{:controller => 'likes', :action => 'destroy'}, method: "delete", params: {like:{trail_id: @trail.id}}%><br>
 
 <h1>Leave a Comment</h1>
-<%= form_with model: @comment, :url => url_for(:controller => 'comments', :action => 'create') do | f |%>
-
-<%= f.label :comment %>
-<%= f.text_field :comment %>
-<%= f.label :trail_id %>
-<%= f.number_field :trail_id, value: @trail.id%>
-<br />
-<%= f.submit "Submit" %>
-
-<% end %>
+<form action='/comments' method='POST'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="comment[trail_id]" value="<%= @trail.id %>">
+    <label for="comment[content]">Comment</label>
+    <input type="textarea" name="comment[content]" />
+    <input type="submit">
+</form>
 
 <h3>Comments:</h3>
 <ul>
-<% @comments.each do |comment| %>
-<li><%= comment.content %></li>
-<% end %>
+    <% @comments.each do |comment| %>
+    <li><%= comment.content %></li>
+    <% end %>
 </ul>
-
 
 <h1>Would you like to add this trail to your Trails List?</h1>
 
 <%= button_to 'yes',{:controller => 'trail_lists', :action => 'create'}, method: "post", params: {trail_lists:{trail_id: @trail.id}}%><br>
 
 <h1>setup a hike</h1>
-<%= form_with model: @hike, :url => url_for(:controller => 'hikes', :action => 'create') do | f |%>
-
-<%= f.label :hike_date %>
-<%= f.date_field :hike_date %>
-<%= f.label :trail_id %>
-<%= f.number_field :trail_id, value: @trail.id%>
-<br />
-<%= f.submit "set up" %>
-
-<% end %>
-
+<form action='/hikes' method='POST'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="hike[trail_id]" value="<%= @trail.id %>">
+    <label for="hike_date"></label>
+    <input type="date" name="hike[hike_date]" />
+    <input type="submit">
+</form>
 
 <h3>Scheduled Hikes</h3>
 <ul>
-<% @hikes.each do |hike| %>
-<li><%= link_to hike.hike_date.strftime('%m/%d/%Y'), hike_path(hike) %></li>
-<% end %>
+    <% @hikes.each do |hike| %>
+    <li><%= link_to hike.hike_date.strftime('%m/%d/%Y'), hike_path(hike) %></li>
+    <% end %>
 </ul>
-<%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
 
+<%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
