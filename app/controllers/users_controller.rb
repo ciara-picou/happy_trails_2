@@ -20,24 +20,21 @@ class UsersController < ApplicationController
     end
   end
 
-  def authenticated?
-    if session[:id] != nil
-      @user = User.find(session[:id])
-    else
-      redirect_to "/sign_in"
-    end
-  end
-
   def show
     @user = User.find(params[:id])
-    if session[:id].to_s != params[:id]
-      redirect_to "/sign_in"
-    end
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :username, :password, :password_confirmation)
+  end
+end
+
+def authenticated?
+  if session[:id] != nil
+    @user = User.find(session[:id])
+  else
+    redirect_to "/sign_in"
   end
 end

@@ -36,7 +36,6 @@ class TrailListsController < ApplicationController
     params.require(:trail_lists).permit(:trail_id, :user_id)
   end
 
-  #not convention better to validate uniqueness
   def already_liked?
     TrailList.where(user_id: session[:id], trail_id: list_params[:trail_id]).exists?
   end

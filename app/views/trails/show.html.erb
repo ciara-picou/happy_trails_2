@@ -10,7 +10,6 @@
 <li style='color: red '> <%= v %> </li>
 <% end %>
 <%= button_to 'like',{:controller => 'likes', :action => 'create'}, method: "post", params: {like:{trail_id: @trail.id}}%><br>
-<% button_to 'unlike',{:controller => 'likes', :action => 'destroy'}, method: "delete", params: {like:{trail_id: @trail.id}}%><br>
 
 <h1>Leave a Comment</h1>
 <form action='/comments' method='POST'>

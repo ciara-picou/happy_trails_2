@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-  before_action :find_trail
   before_action :find_like, only: [:destroy]
 
   def create
@@ -13,7 +12,7 @@ class LikesController < ApplicationController
 
   def destroy
     if !(already_liked?)
-      flash[:notice] = "WoW your actually tried unliking more then once"
+      flash[:notice] = "Wow, you actually tried unliking more then once"
     else
       @like.destroy
     end
@@ -21,10 +20,6 @@ class LikesController < ApplicationController
   end
 
   private
-
-  def find_trail
-    @trail = Trail.find(like_params[:trail_id])
-  end
 
   def find_like
     @like = Like.find(params[:id])
