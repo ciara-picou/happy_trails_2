@@ -30,6 +30,7 @@ def create_trails(trail)
       location: trail[i]["location"],
       length: trail[i]["length"],
       imgMedium: parse_url(trail[i]["imgMedium"]),
+     
     )
     i += 1
   end
