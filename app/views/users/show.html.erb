@@ -1,23 +1,26 @@
 <%= stylesheet_link_tag 'application.css' %>
 
-<h1 class="header"> Welcome <%= @user.name %> </h1>
-<div class="user_show_div">
-    <div class="inner_user_div">
+<header id='main-header'>
+    <h1 class="header"> Welcome <%= @user.name %> </h1>
+</header>
+<nav id='main-nav'>
         <h2> Plan your next adventure </h2>
         <ul>
-            <li>Check out our amazing <a href="/trails">Trails</a></li>
-            <li>View your <a href="/trail_lists">Trail List</a></li>
-            <li>Join other hikers on a group <a href="/hikes"> Hike</a></li>
+            <li><a href="/trails">Trails</a></li>
+            <li><a href="/trail_lists">Saved Trails</a></li>
+            <li><a href="/hikes">Group Hikes</a></li>
+            <li><%= button_to 'Log Out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%></li>
         </ul>
-
-        <%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%><br><br>
-
+</nav>
+<section id="user-show">
+    <div class="inner-user-div">
         <h3>Your Scheduled Hikes:</h3>
         <% @user.hike_sign_ups.each do |sign_up| %>
-        <%=link_to"#{sign_up.hike.trail.name} :","/hikes/#{sign_up.hike.id}" %> <%= sign_up.hike.hike_date%><br>
+        <%=link_to"#{sign_up.hike.trail.name} :","/hikes/#{sign_up.hike.id}" %> <%= sign_up.hike.hike_date%>
         <% end %>
-
+        <div class='inner-user-img'>
+            <img class="trail_img" src="<%= Trail.first.imgMedium%>">
+        </div>
     </div>
-</div>
+</section>
 
-<img class="trail_img" src="<%= Trail.first.imgMedium %>">
