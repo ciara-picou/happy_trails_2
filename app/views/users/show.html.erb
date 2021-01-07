@@ -13,14 +13,27 @@
         </ul>
 </nav>
 <section id="user-show">
-    <div class="inner-user-div">
-        <h3>Your Scheduled Hikes:</h3>
-        <% @user.hike_sign_ups.each do |sign_up| %>
-        <%=link_to"#{sign_up.hike.trail.name} :","/hikes/#{sign_up.hike.id}" %> <%= sign_up.hike.hike_date%>
-        <% end %>
-        <div class='inner-user-img'>
-            <img class="trail_img" src="<%= Trail.first.imgMedium%>">
+        <div class='user-container'>
+            <div class='user-content'>
+                <h1>Your Scheduled Hikes</h1>
+                    <div class="user-hikes">
+                        <% @user.hike_sign_ups.each do |sign_up| %>
+                            <div class='card'>
+                                <h2><%=sign_up.hike.trail.name%></h2>
+                                <p>Scheduled Date: <%=sign_up.hike.hike_date%> <p>
+                                <div class='trail-img'>
+                                    <img src="<%=sign_up.hike.trail.imgMedium%>">
+                                </div>
+                                <%=link_to "More Info","/hikes/#{sign_up.hike.id}", :class =>'btn btn-primary' %>
+                            </div>
+                        <% end %>
+                    </div>
+            </div>
         </div>
-    </div>
 </section>
 
+<footer id='main-footer'>
+    <div class='footer-container'>
+        <p>CEEB &copy;2020, All Rights Reserved</p>
+    </div>
+</footer>
