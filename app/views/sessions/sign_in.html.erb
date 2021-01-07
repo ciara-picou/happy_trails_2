@@ -1,26 +1,37 @@
-<h1 class="header">Happy Trails</h1>
+<header id='main-header'>
+    <h1 class="header">Happy Trails</h1>
+</header>
+<section id='sign-in'>
+    <div class='container'>
+        <div class='sign-in-container'>
+            <h4>Please sign in to your account</h4>
+            <div class="sign_in_form">
+                <%= form_with model: @user, :url => url_for(:controller => 'sessions', :action => 'create')do | f |%>
+                <div class='form-input'>
+                    <%= f.label :email %>
+                    <%= f.text_field :email %>
+                </div>
+                <br />
+                <div class='form-input'>
+                    <%= f.label :password %>
+                    <%= f.password_field :password %>
+                </div>
+                <br />
+                <div class='form-input'>
+                    <%= f.submit "log in" %>
+                </div>
+                
+                <% end %>
 
-<div class='container'>
-    <div class='sign-in-container'>
-        <h4>Please sign in to your account</h4>
-        <div class="sign_in_div">
-            <%= form_with model: @user, :url => url_for(:controller => 'sessions', :action => 'create')do | f |%>
-            <%= f.label :email %>
-            <%= f.text_field :email %>
-            <br />
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-            <br />
-            <%= f.submit "log in" %>
+                <br>
+                <%=link_to "Don't have an account? Create one!", '/users/new'  %>
 
-            <% end %>
-
-            <br>
-            <%=link_to "Don't have an account? Create one!", '/users/new'  %>
-
-            <% flash.each do | key, v | %>
-            <li style='color: red '> <%= v %> </li>
-            <%end %>
+                <% flash.each do | key, v | %>
+                <li> <%= v %> </li>
+                <%end %>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+
