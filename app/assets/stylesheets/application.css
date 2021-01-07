@@ -14,7 +14,7 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300;400;700&display=swap");
 
 /* Note on Margin vs. Padding */
 /* Margin is outside of element */
@@ -23,12 +23,12 @@
 /* Reset Margin and Padding */
 /* Border-box keeps divs their desired shape */
 :root {
-    --primary-color: #204F04;
-    --secondary-color: #5E0F1F;
-    --dark-color: #333;
-    --light-color: #f4f4f4;
-    --main-font: 'Raleway', sans-serif;
-    --title-font: 'Lobster', cursive;
+  --primary-color: #204f04;
+  --secondary-color: #5e0f1f;
+  --dark-color: #333;
+  --light-color: #f4f4f4;
+  --main-font: "Raleway", sans-serif;
+  --title-font: "Lobster", cursive;
 }
 
 * {
@@ -85,7 +85,7 @@ h6 {
 }
 
 #main-header h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 /* #main-header:before {
@@ -102,57 +102,94 @@ h6 {
 
 /* Utilities */
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 2rem;
-    overflow: hidden;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
 }
 
 /* Sign-In Erb */
-#sign-in {
-    margin-top: 2rem;
+#sign-in,
+#new-user {
+  margin-top: 2rem;
 }
 
-.sign-in-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.sign-in-container,
+.new-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .sign-in-container h4 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .sign_in_form {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
 
-.sign_in_form .form-input label {
-    display: block;
-    margin-bottom: 0.4rem;
+.sign_in_form .form-input label,
+.new-user-form .form-input label {
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
-.sign_in_form .form-input input {
-    width: 100%;
-    padding: 0.4rem;
-    height: 2rem;
+.sign_in_form .form-input input,
+.new-user-form .form-input input {
+  width: 100%;
+  padding: 0.4rem;
+  height: 2rem;
 }
 
-.sign_in_form .form-input input[type='submit'] {
-    display: inline-block;
-    border: none;
-    background: var(--primary-color);
-    text-transform: uppercase;
-    color: #fff;
-    padding: 0.5rem 1.5rem;
+.sign_in_form .form-input input[type="submit"],
+.new-user-form .form-input input[type="submit"] {
+  display: inline-block;
+  border: none;
+  background: var(--primary-color);
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
 }
 
-.sign_in_form .form-input input[type='submit']:hover {
-    opacity: 0.9;
+.sign_in_form .form-input input[type="submit"]:hover,
+.new-user-form .form-input input[type="submit"]:hover {
+  opacity: 0.9;
 }
 
-.sign_in_form li {
+.sign_in_form .form-input input:focus,
+.new-user-form .form-input input:focus {
+  outline-color: var(--primary-color);
+}
+
+.sign_in_form li,
+.new-user-form li {
+  color: red;
+  list-style: none;
+}
+
+/* New User erb */
+
+.new-user-form {
+  width: 300px;
+}
+
+.new-user-form .form-input {
+  margin: 1rem 0;
+}
+
+/* .new-user-form .form-input label::after {
+    content: ' *';
     color: red;
-    list-style: none;
+    font-size: 1.2rem;
+} */
+
+.new-user-form .form-input:nth-child(3) label:after,
+.new-user-form .form-input:nth-child(4) label:after,
+.new-user-form .form-input:nth-child(5) label:after,
+.new-user-form .form-input:nth-child(6) label:after {
+  content: " *";
+  color: red;
+  font-size: 1.2rem;
 }
