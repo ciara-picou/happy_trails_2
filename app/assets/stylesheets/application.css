@@ -13,56 +13,43 @@
  *= require_tree .
  *= require_self
  */
-body{
-    background-color: rgb(182, 207, 216);
-    font-family: 'David Libre', serif;
+
+
+/* Note on Margin vs. Padding */
+/* Margin is outside of element */
+/* Padding is inside of element */
+
+/* Reset Margin and Padding */
+/* Border-box keeps divs their desired shape */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
-    display: none
-}
- .header{
-     display: flex;
-     width: 100%;
-     padding-top: 2%;
-     padding-bottom: 2%;
-     justify-content: center;
-     background-color: rgb(150, 189, 223);
-     color:rgb(220, 231, 235)
- }
-
-
- .user_show_div{
-    display: flex;
-    float: left;
-    flex-flow: column wrap;
-    max-height: 600px;
-    padding: 10%;
- }
-
- .inner_user_div {
-    display: flex;
-    float: left;
-    font-size: 20px;
-    
-    flex-flow: column wrap;
-    align-items: center;
- }
-
- .inner_user_div h2 {
-     font-size: 30px;
- }
- .inner_user_div ul {
-     max-width: 80%;
- }
-
- .trail_img {
-     float: right;
-     max-width: 60%;
- }
-.trails_index_div{
-    padding: 10%;
-    font-size: 25px
+body {
+  background: #f4f4f4;
+  color: #333;
 }
 
- 
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.55rem;
+    line-height: 1.3;
+}
