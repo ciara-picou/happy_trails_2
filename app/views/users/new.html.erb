@@ -1,24 +1,40 @@
-<h1>Sign Up</h1>
+<header id='main-header'>
+  <h1>Sign Up</h1>
+</header>
+<section id='new-user'>
+  <div class='container'>
+    <div class='new-user-container'>
+      <div class="new-user-form">
+        <%= form_with model: @user, :url => url_for(:controller => 'users', :action => 'create')do | f |%>
+        <div class='form-input'>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>   
+        <div class='form-input'>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>      
+        <div class='form-input'>
+          <%= f.label :username %>
+          <%= f.text_field :username %>
+        </div>    
+        <div class='form-input'>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>      
+        <div class='form-input'>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation %>
+        </div>      
+        <div class='form-input'>
+          <%= f.submit "sign up" %>
+        </div>
+        <% end %>
 
-<%= form_with model: @user, :url => url_for(:controller => 'users', :action => 'create')do | f |%>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br />
-<%= f.label :email %>
-<%= f.text_field :email %>
-<br />
-<%= f.label :username %>
-<%= f.text_field :username %>
-<br />
-<%= f.label :password %>
-<%= f.password_field :password %>
-<br />
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
-<br />
-<%= f.submit "sign up" %>
-<% end %>
-
-<% flash.each do | key, v | %>
-<li style='color: red '> <%= v %> </li>
-<% end %>
+        <% flash.each do | key, v | %>
+        <li style='color: red '> <%= v %> </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
