@@ -326,6 +326,10 @@ h6 {
   text-decoration: underline;
 }
 
+.trail-container .trail-info p {
+  font-size: 1.3rem;
+}
+
 .trail-container .new-hikes {
   margin: 1rem 0;
 }
@@ -431,6 +435,34 @@ h6 {
 
 #show-hike .hike-container .hike-info .hike-sign-up {
   margin: 1rem 0;
+}
+
+// Trails Index
+#trails .trails-container {
+  padding: 0 2rem;
+}
+
+#trails .trails-container .trails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+}
+
+#trails .trails-container .trails .trail-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+#trails .trails-container .trails .trail-card h2 a:hover {
+  color: var(--secondary-color);
+}
+
+#trails .trails-container .trails .trail-card img {
+  object-fit: cover;
 }
 
 /* Footer */
