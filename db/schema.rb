@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_195506) do
   create_table "hikes", force: :cascade do |t|
     t.integer "trail_id"
     t.date "hike_date"
+    t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
