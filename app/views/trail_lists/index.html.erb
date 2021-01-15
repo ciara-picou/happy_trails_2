@@ -1,14 +1,22 @@
-<h1 class="header">Trails to Check Out </h1>
-
-<% flash.each do | key, v | %>
-<li style='color: red '> <%= v %> </li><br>
-<%end %>
-
-<% @trail_lists.each do |trail_list| %>
-<img src=<%= "#{trail_list.trail.imgMedium} "%>>
-<br><%= link_to trail_list.trail.name, trail_path(trail_list.trail) %><br>
-<br>
-<br>
-<% end %>
-
-<%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
+<header id='main-header'>
+  <h1>Saved Trails</h1>
+</header>
+<section id="saved-trails">
+  <% flash.each do | key, v | %>
+  <li style='color: red '> <%= v %> </li><br>
+  <%end %>
+  <div class="trail-list p-2">
+    <% @trail_lists.each do |trail_list| %>
+      <div class="card trail-card">
+        <h2><%= link_to trail_list.trail.name, trail_path(trail_list.trail) %></h2>
+        <img src=<%="#{trail_list.trail.imgMedium}"%>>
+      </div>
+    <% end %>
+  </div>
+  <%= button_to "Return to Homepage", user_path(session[:id]), method: "get", class: 'btn btn-primary' %>
+</section>
+<footer id='main-footer'>
+    <div class='footer-container'>
+        <p>CPEB &copy;2020, All Rights Reserved</p>
+    </div>
+</footer>

@@ -3,7 +3,7 @@
 </header>
 <section id="trails">
     <div class="trails-container">
-      <div class="trails py-3">
+      <div class="trails">
         <% @trails.each do |trail| %>
             <div class="card trail-card">
               <h2><%= link_to trail.name, trail_path(trail) %></h2>
@@ -13,7 +13,7 @@
             </div>
         <% end %>
       </div>
-      <%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
+      <%= button_to "Return to Homepage", user_path(session[:id]), method: "get", class: 'btn btn-primary' %>
     </div>
 </section>
 <footer id='main-footer'>

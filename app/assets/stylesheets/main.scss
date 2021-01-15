@@ -124,7 +124,9 @@ h6 {
 .py-1 {padding: 1.3rem 0;}
 .py-2 {padding: 2rem 0;}
 .py-3 {padding: 3rem 0;}
-.py-3 {padding: 3rem 0;}
+.p-1 {padding: 1.3rem;}
+.p-2 {padding: 2rem;}
+.p-3 {padding: 3rem;}
 
 // Text Utilities
 .text-primary {color: var(--primary-color)}
@@ -439,16 +441,30 @@ h6 {
 
 // Trails Index
 #trails .trails-container {
-  padding: 0 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#trails .trails-container .trails {
+#trails .trails-container .btn {
+  margin: 1rem;
+}
+
+#trails .trails-container .trails,
+#saved-trails .trail-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.5rem;
 }
 
-#trails .trails-container .trails .trail-card {
+#trails .trails-container .trails:last-child {
+  grid-column: 1 / span 3;
+}
+
+#trails .trails-container .trails .trail-card,
+#saved-trails .trail-list .trail-card {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -463,6 +479,17 @@ h6 {
 
 #trails .trails-container .trails .trail-card img {
   object-fit: cover;
+}
+
+#saved-trails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#saved-trails .btn  {
+  margin: 1rem 0;
 }
 
 /* Footer */
