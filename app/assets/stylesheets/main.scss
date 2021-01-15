@@ -1,0 +1,525 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300;400;700&display=swap");
+
+/* Note on Margin vs. Padding */
+/* Margin is outside of element */
+/* Padding is inside of element */
+
+/* Reset Margin and Padding */
+/* Border-box keeps divs their desired shape */
+:root {
+  --primary-color: #204f04;
+  --secondary-color: #ac0d2d;
+  --dark-color: #333;
+  --light-color: #f4f4f4;
+  --main-font: "Raleway", sans-serif;
+  --title-font: "Lobster", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--light-color);
+  color: var(--dark-color);
+  font-family: var(--main-font);
+}
+
+a {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.55rem;
+  line-height: 1.3;
+  font-family: var(--title-font);
+}
+
+/* Header */
+#main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  height: 25vh;
+}
+
+#main-header h1 {
+  font-size: 3rem;
+  z-index: 1;
+}
+
+#main-header p {
+  font-size: 2rem;
+}
+
+#main-header:before {
+    content: '';
+    background: image-url('header.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+/* Utilities */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: var(--dark-color);
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out ;
+}
+
+.btn:hover {
+    background: #2B6B06;
+}
+
+.btn-primary { background: var(--primary-color);}
+.btn-secondary { background: var(--secondary-color);}
+
+// first number is top and bottom
+// second number is left and right
+.py-1 {padding: 1.3rem 0;}
+.py-2 {padding: 2rem 0;}
+.py-3 {padding: 3rem 0;}
+.p-1 {padding: 1.3rem;}
+.p-2 {padding: 2rem;}
+.p-3 {padding: 3rem;}
+
+// Text Utilities
+.text-primary {color: var(--primary-color)}
+.text-secondary {color: var(--secondary-color)}
+
+/* Sign-In Erb */
+#sign-in,
+#new-user {
+  margin-top: 2rem;
+}
+
+.sign-in-container,
+.new-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-container h4 {
+  font-size: 1.5rem;
+}
+
+.sign_in_form {
+  padding: 1rem 0;
+}
+
+.sign_in_form .form-input label,
+.new-user-form .form-input label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.sign_in_form .form-input input,
+.new-user-form .form-input input {
+  width: 100%;
+  padding: 0.4rem;
+  height: 2rem;
+}
+
+.sign_in_form .form-input input[type="submit"],
+.new-user-form .form-input input[type="submit"] {
+  display: inline-block;
+  border: none;
+  background: var(--primary-color);
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+
+.sign_in_form .form-input input[type="submit"]:hover,
+.new-user-form .form-input input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.sign_in_form .form-input input:focus,
+.new-user-form .form-input input:focus {
+  outline-color: var(--primary-color);
+}
+
+.sign_in_form li,
+.new-user-form li {
+  color: red;
+  list-style: none;
+}
+
+.sign_in_form a:hover {
+  color: red;
+}
+
+/* New User erb */
+
+.new-user-form {
+  width: 300px;
+}
+
+.new-user-form .form-input {
+  margin: 1rem 0;
+}
+
+.new-user-form .form-input label::after {
+    content: ' *';
+    color: red;
+    font-size: 1.2rem;
+}
+
+/* .new-user-form .form-input:nth-child(3) label:after,
+.new-user-form .form-input:nth-child(4) label:after,
+.new-user-form .form-input:nth-child(5) label:after,
+.new-user-form .form-input:nth-child(6) label:after {
+  content: " *";
+  color: red;
+  font-size: 1.2rem;
+} */
+
+/* Navigation */
+#main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2B6B06;
+    height: 100px;
+    padding: 0 1rem;
+    color: #fff;
+}
+
+#main-nav h2 {
+    font-weight: 300;
+}
+
+#main-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#main-nav ul li {
+    height: 100%;
+    font-size: 1.3rem;
+}
+
+#main-nav ul li a {
+    margin: 0 2rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+#main-nav ul li input[type='submit'] {
+  display: inline-block;
+  border: none;
+  background: transparent;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+#main-nav ul li a:hover,
+#main-nav ul li input[type='submit']:hover {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+/* User Show */
+#user-show {
+    margin: 2rem 0;
+}
+
+#user-show .user-container {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#user-show .user-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#user-show .user-content .user-hikes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+#user-show .user-content .user-hikes .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 3px;
+}
+
+#user-show .user-content .user-hikes .card h2 {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#user-show .user-content .user-hikes .card .btn {
+    margin: 0.5rem 0;
+}
+
+// Show trails
+#show-trail .trail-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1.3rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.trail-container .trail-info > * {
+  margin-bottom: 1rem;
+}
+
+.trail-container .trail-info h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.trail-container .trail-info p {
+  font-size: 1.3rem;
+}
+
+.trail-container .new-hikes {
+  margin: 1rem 0;
+}
+
+.trail-container .new-hikes .new-hike-form .form-input {
+  margin-bottom: 1rem;
+}
+
+.trail-container .new-hikes .new-hike-form .form-input label,
+.trail-container .new-comment-form label {
+  display: block;
+}
+
+.trail-container .new-hikes .new-hike-form .form-input input {
+  height: 1.5rem;
+  width: 60%;
+}
+
+.trail-container .new-hikes h1 {
+  font-size: 2rem;
+}
+
+.trail-container .hike-info .planned-hikes h3 {
+  font-size: 2rem;
+}
+
+.trail-container .hike-info .planned-hikes ul {
+  list-style: none;
+}
+
+.trail-container .hike-info .planned-hikes ul li a {
+  border-bottom: 1px dotted var(--dark-color);
+  margin: 0.5rem 1rem;
+  font-size: 1.3rem;
+}
+
+.trail-container .hike-info .planned-hikes ul li a:last-child {
+  border: none;
+}
+
+.trail-container .hike-info .planned-hikes ul li a:hover {
+  color: var(--primary-color);
+}
+
+.comments-section h2 {
+  font-size: 2rem;
+}
+
+.comments-section .new-comment-form {
+  margin-bottom: 1rem;
+}
+
+.comments-section .new-comment-form .form-input {
+  margin: 1rem 0;
+}
+
+.comments-section .new-comment-form .form-input input {
+  width: 60%;
+  height: 1.8rem;
+}
+
+.comments-section .comments li {
+  border-bottom: 1px dotted var(--dark-color);
+  margin: 0.5rem 1rem;
+  font-size: 1.3rem;
+}
+
+.comments-section .comments li:last-child {
+  border: none;
+}
+
+.trail-container .return-home {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+// Show Hike
+#show-hike .container .hike-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  height: 800px;
+}
+
+#show-hike .hike-container .trail-info {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0.7rem 0;
+}
+
+#show-hike .hike-container .hike-info .meetup {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#show-hike .hike-container .hike-info .registered-hikers {
+  margin: 1rem 0;
+}
+
+#show-hike .hike-container .hike-info .hike-sign-up {
+  margin: 1rem 0;
+}
+
+// Trails Index
+#trails .trails-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#trails .trails-container .btn {
+  margin: 1rem;
+}
+
+#trails .trails-container .trails,
+#saved-trails .trail-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+}
+
+#trails .trails-container .trails:last-child {
+  grid-column: 1 / span 3;
+}
+
+#trails .trails-container .trails .trail-card,
+#saved-trails .trail-list .trail-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+#trails .trails-container .trails .trail-card h2 a:hover {
+  color: var(--secondary-color);
+}
+
+#trails .trails-container .trails .trail-card img {
+  object-fit: cover;
+}
+
+#saved-trails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#saved-trails .btn  {
+  margin: 1rem 0;
+}
+
+// Hikes Index
+#hikes-index .hikes-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+#hikes-index .hikes-list h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+#hikes-index .hikes-list p {
+  font-size: 1.3rem;
+}
+
+/* Footer */
+#main-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: #fff;
+    height: 60px;
+    text-align: center;
+}

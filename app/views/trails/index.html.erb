@@ -1,7 +1,23 @@
-<h1 class="header">Check Out Our Trails: click on a trail to learn more about it </h1>
-
-<% @trails.each do |trail| %>
-<li><%= link_to trail.name, trail_path(trail) %></li>
-<% end %>
-
-<%= button_to "Return to Homepage", user_path(session[:id]), method: "get" %>
+<header id='main-header'>
+  <h1>Our Trails</h1>
+</header>
+<section id="trails">
+    <div class="trails-container">
+      <div class="trails">
+        <% @trails.each do |trail| %>
+            <div class="card trail-card">
+              <h2><%= link_to trail.name, trail_path(trail) %></h2>
+              <div class="trail-img">
+                <img src="<%=trail.imgMedium%>" alt="trail image">
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <%= button_to "Return to Homepage", user_path(session[:id]), method: "get", class: 'btn btn-primary' %>
+    </div>
+</section>
+<footer id='main-footer'>
+    <div class='footer-container'>
+        <p>CPEB &copy;2020, All Rights Reserved</p>
+    </div>
+</footer>
