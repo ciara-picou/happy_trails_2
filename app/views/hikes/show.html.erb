@@ -3,6 +3,7 @@
 <!-- List out trail details and registered hikers, allows a user to register for Hike -->
 <h1 class="header"><%= @date %> </h1>
 <h1><%= @hike.trail.name %></h1>
+<h3>We’ll meet at the trail head at <%= @hike.time %></h3>
 <p> <%= @hike.trail.summary %> </p>
 <li> <strong>Rating:</strong> <%= @hike.trail.stars %></li>
 <li> <strong>Location:</strong> <%= @hike.trail.location %></li>

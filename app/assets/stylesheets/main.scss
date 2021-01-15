@@ -112,6 +112,18 @@ h6 {
 }
 
 .btn-primary { background: var(--primary-color);}
+.btn-secondary { background: var(--secondary-color);}
+
+// first number is top and bottom
+// second number is left and right
+.py-1 {padding: 1.3rem 0;}
+.py-2 {padding: 2rem 0;}
+.py-3 {padding: 3rem 0;}
+.py-3 {padding: 3rem 0;}
+
+// Text Utilities
+.text-primary {color: var(--primary-color)}
+.text-secondary {color: var(--secondary-color)}
 
 /* Sign-In Erb */
 #sign-in,
@@ -288,6 +300,103 @@ h6 {
 
 #user-show .user-content .user-hikes .card .btn {
     margin: 0.5rem 0;
+}
+
+// Show trails
+#show-trail .trail-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1.3rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.trail-container .trail-info > * {
+  margin-bottom: 1rem;
+}
+
+.trail-container .trail-info h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.trail-container .new-hikes {
+  margin: 1rem 0;
+}
+
+.trail-container .new-hikes .new-hike-form .form-input {
+  margin-bottom: 1rem;
+}
+
+.trail-container .new-hikes .new-hike-form .form-input label,
+.trail-container .new-comment-form label {
+  display: block;
+}
+
+.trail-container .new-hikes .new-hike-form .form-input input {
+  height: 1.5rem;
+  width: 60%;
+}
+
+.trail-container .new-hikes h1 {
+  font-size: 2rem;
+}
+
+.trail-container .hike-info .planned-hikes h3 {
+  font-size: 2rem;
+}
+
+.trail-container .hike-info .planned-hikes ul {
+  list-style: none;
+}
+
+.trail-container .hike-info .planned-hikes ul li a {
+  border-bottom: 1px dotted var(--dark-color);
+  margin: 0.5rem 1rem;
+  font-size: 1.3rem;
+}
+
+.trail-container .hike-info .planned-hikes ul li a:last-child {
+  border: none;
+}
+
+.trail-container .hike-info .planned-hikes ul li a:hover {
+  color: var(--primary-color);
+}
+
+.comments-section h2 {
+  font-size: 2rem;
+}
+
+.comments-section .new-comment-form {
+  margin-bottom: 1rem;
+}
+
+.comments-section .new-comment-form .form-input {
+  margin: 1rem 0;
+}
+
+.comments-section .new-comment-form .form-input input {
+  width: 60%;
+  height: 1.8rem;
+}
+
+.comments-section .comments li {
+  border-bottom: 1px dotted var(--dark-color);
+  margin: 0.5rem 1rem;
+  font-size: 1.3rem;
+}
+
+.comments-section .comments li:last-child {
+  border: none;
+}
+
+.trail-container .return-home {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /* Footer */
