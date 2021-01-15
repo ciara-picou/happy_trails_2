@@ -100,6 +100,7 @@ h6 {
 .card {
     background: #fff;
     padding: 1rem;
+    border-radius: 5px;
 }
 
 .btn {
@@ -191,6 +192,10 @@ h6 {
 .new-user-form li {
   color: red;
   list-style: none;
+}
+
+.sign_in_form a:hover {
+  color: red;
 }
 
 /* New User erb */
@@ -490,6 +495,22 @@ h6 {
 
 #saved-trails .btn  {
   margin: 1rem 0;
+}
+
+// Hikes Index
+#hikes-index .hikes-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+#hikes-index .hikes-list h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+#hikes-index .hikes-list p {
+  font-size: 1.3rem;
 }
 
 /* Footer */

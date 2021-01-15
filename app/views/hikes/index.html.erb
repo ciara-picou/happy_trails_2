@@ -1,11 +1,25 @@
-<h1>All Hikes</h1>
-
-<!-- Lists out all schedluled hikes with the trail and the date. Allows a user to sign up for the hike -->
-<% @hikes.each do |hike| %>
-<h4> <%=link_to hike.trail.name, trail_path(hike.trail)%> - <%=hike.hike_date%></h4>
-<form action='/hike_sign_ups' method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="hike_sign_up[hike_id]" value="<%= hike.id %>">
-    <input type="submit" value="Register">
-</form>
-<% end %>
+<header id='main-header'>
+    <h1>Happy Hikes</h1>
+</header>
+<section id="hikes-index">
+    <!-- Lists out all schedluled hikes with the trail and the date. Allows a user to sign up for the hike -->
+    <div class="hikes-list p-2">
+        <% @hikes.each do |hike| %>
+        <div class="card">
+            <h2> <%=link_to hike.trail.name, trail_path(hike.trail)%></h2>
+            <p>Hike Date: <%=hike.hike_date%></p>
+            <img src="<%=hike.trail.imgMedium%>" alt="trail image">
+            <form action='/hike_sign_ups' method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="hike_sign_up[hike_id]" value="<%= hike.id %>">
+                <input type="submit" value="Register" class="btn btn-primary">
+            </form>
+        </div>
+        <% end %>
+    </div>   
+</section>
+<footer id='main-footer'>
+    <div class='footer-container'>
+        <p>CPEB &copy;2020, All Rights Reserved</p>
+    </div>
+</footer>
