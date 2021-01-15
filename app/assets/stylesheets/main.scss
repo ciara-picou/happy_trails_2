@@ -58,6 +58,7 @@ h6 {
 /* Header */
 #main-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
@@ -71,6 +72,10 @@ h6 {
 #main-header h1 {
   font-size: 3rem;
   z-index: 1;
+}
+
+#main-header p {
+  font-size: 2rem;
 }
 
 #main-header:before {
@@ -397,6 +402,35 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+// Show Hike
+#show-hike .container .hike-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  height: 800px;
+}
+
+#show-hike .hike-container .trail-info {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0.7rem 0;
+}
+
+#show-hike .hike-container .hike-info .meetup {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#show-hike .hike-container .hike-info .registered-hikers {
+  margin: 1rem 0;
+}
+
+#show-hike .hike-container .hike-info .hike-sign-up {
+  margin: 1rem 0;
 }
 
 /* Footer */
