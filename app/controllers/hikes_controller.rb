@@ -9,6 +9,7 @@ class HikesController < ApplicationController
 
   def create
     @hike = Hike.create(hike_params)
+    HikeSignUp.create(hike_id: @hike.id, user_id: session[:id])
     redirect_to trail_path(@hike.trail)
   end
 
